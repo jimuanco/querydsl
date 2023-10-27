@@ -1,9 +1,6 @@
 package study.querydsl.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -16,6 +13,7 @@ import java.util.List;
 public class Team {
 
     @Id @GeneratedValue
+    @Column(name = "team_id")
     private Long id;
     private String name;
 

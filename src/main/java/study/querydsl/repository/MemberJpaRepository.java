@@ -115,7 +115,7 @@ public class MemberJpaRepository {
 
     public List<Member> searchMember(MemberSearchCondition condition) {
         return queryFactory
-                .select(member)
+                .selectFrom(member)
                 .leftJoin(member.team, team)
                 .where(
                         usernameEq(condition.getUsername()),
@@ -126,8 +126,8 @@ public class MemberJpaRepository {
     }
 
     //null 체크 보강해야해
-    private BooleanExpression ageBetween(int ageLoe, int ageGoe) {
-        return ageGoe(ageLoe).and(ageGoe(ageGoe));
+    private BooleanExpression ageBetween(Integer ageLoe, Integer ageGoe) {
+        return ageLoe(ageLoe).and(ageGoe(ageGoe));
     }
 
     //BooleanExpression 으로 해야 and 이런 조합 가능
